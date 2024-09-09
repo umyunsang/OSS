@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제 2</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사진 가져오기</h1>
+    <input type="text" id="who">
+    <button onclick="showImage()">사진</button>
+    <br><br>
+    <img id="image" src="static/나는.png" alt="사진을 가져오지 못했습니다.">
+    
+    <script>
+        function showImage() {
+            const image = document.getElementById('image');
+            const who = document.getElementById('who').value.trim();
+
+            if (who == "당근" || who == "당") image.src = 'static/당근.png';
+            else if (who == "양파" || who == "양") image.src = 'static/양파.png';
+            else if (who == "식빵" || who == "식") image.src = 'static/식빵.png';
+            else image.src = 'static/쏘리.png';
+        }
+    </script>
+</body>
+</html>

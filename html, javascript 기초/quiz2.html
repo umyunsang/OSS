@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1705817 엄윤상</title>
+</head>
+<style>
+    body {padding: 20px; background: aqua;}
+    button {background: yellow;}
+    h1 {color: blue;}
+    h3 {color: red;}
+    img {width: 120px; height: 80ps;}
+</style>
+<body>
+    <h1>무엇일까요? </h1>
+    <img src="static/당근.png" alt="당근"> <input type="text" id="a1"> <br><br>
+    <img src="static/양파.png" alt="양파"> <input type="text" id="a2"> <br><br>
+    <img src="static/식빵.png" alt="식빵"> <input type="text" id="a3"> <br><br>
+    <button onclick="checkAnswers()">제출하기</button> <br><br>
+    <h3 id="result"></h3>
+    <h3 id="good"></h3>
+
+    <script>
+    function checkAnswers() {
+        let score = 0;
+
+        const a1 = document.getElementById('a1').value.trim();
+        const a2 = document.getElementById('a2').value.trim();
+        const a3 = document.getElementById('a3').value.trim();
+
+        if (a1.toLowerCase() === "당근") score++;
+        if (a2.toLowerCase() === "양파") score++;
+        if (a3.toLowerCase() === "식빵") score++;
+
+        document.getElementById('result').textContent = score + "개 맞았습니다.";
+        if (score==3)
+        document.getElementById('good').textContent = "참 잘했어요!!";
+        else if (score==0)
+        document.getElementById('good').textContent = "try again";
+        else
+        document.getElementById('good').textContent = "";
+    }
+    </script>
+</body>
+</html>
