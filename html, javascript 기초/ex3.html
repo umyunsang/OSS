@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Calculator</title>
+    <!-- style 태그 내용 파일 분리 -->
+    <link rel="stylesheet" href="ex3.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="number1">
+        <input type="text" id="number2">
+        <div>
+            <button class="operator" onclick="calculate('+')"> + </button>
+            <button class="operator" onclick="calculate('-')"> - </button>
+            <button class="operator" onclick="calculate('*')"> * </button>
+            <button class="operator" onclick="calculate('/')"> / </button>
+            <button class="operator" onclick="calculate('**')"> ** </button>
+            <button class="operator" onclick="calculate('bigger')"> bigger </button>
+            <button class="clear" onclick="calculate('clear')"> clear </button>
+        </div>
+        <input type="text" id="result" placeholder="결과" disabled>
+    </div>
+    <!-- 자바스크립트 파일 분리 -->
+    <script src="ex3.js"></script>
+</body>
+</html>
