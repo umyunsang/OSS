@@ -28,9 +28,9 @@
         const a2 = document.getElementById('a2').value.trim();
         const a3 = document.getElementById('a3').value.trim();
 
-        if (a1.toLowerCase() === "당근") score++;
-        if (a2.toLowerCase() === "양파") score++;
-        if (a3.toLowerCase() === "식빵") score++;
+        if (a1 == "당근") score++;
+        if (a2 == "양파") score++;
+        if (a3 == "식빵") score++;
 
         document.getElementById('result').textContent = score + "개 맞았습니다.";
         if (score==3)

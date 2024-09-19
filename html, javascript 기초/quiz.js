@@ -17,8 +17,9 @@ function checkAnswers() {
 
     // 결과 출력
     document.getElementById('result').textContent = score + "개 맞았습니다.";
+
     if (score==5)
-        document.getElementById('good').textContent = "참 잘했어요!!";
+    document.getElementById('good').textContent = "참 잘했어요!!";
     else if (score==0)
     document.getElementById('good').textContent = "try again";
     else
