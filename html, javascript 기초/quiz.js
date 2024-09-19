@@ -9,11 +9,11 @@ function checkAnswers() {
     const a5 = document.getElementById('a5').value.trim();
 
     // 채점
-    if (a1.toLowerCase() === "cat") score++;
-    if (a2.toLowerCase() === "dolphin") score++;
-    if (a3.toLowerCase() === "duck") score++;
-    if (a4.toLowerCase() === "100") score++;
-    if (a5.toLowerCase() === "625") score++;
+    if (a1 == "cat") score++;
+    if (a2 == "dolphin") score++;
+    if (a3 == "duck") score++;
+    if (a4 == "100") score++;
+    if (a5 == "625") score++;
 
     // 결과 출력
     document.getElementById('result').textContent = score + "개 맞았습니다.";
