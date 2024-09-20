@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>sentences</title>
+  <style>
+    #output {
+      width: 300px;
+      height: 200px;
+      border: 2px solid silver;
+      overflow-y: auto;}
+    #inputText {
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+  <h2>문장 입력 후 누적</h2>
+  <div id="output"></div>
+  
+  <!-- 여기 2라인 코딩 -->
+  <input type="text" id="inputText" placeholder="문장을 입력하세요">
+  <button onclick="addText()">추가</button>
+  
+  <script>
+    function addText() {
+      const input = document.getElementById('inputText').value;
+      const output = document.getElementById('output');
+      
+      if (input.trim() !== "") {
+        output.innerHTML += input + '<br>';
+        document.getElementById('inputText').value = ''; // 입력창 초기화
+      }
+    }
+  </script>
+</body>
+</html>
