@@ -11,13 +11,19 @@
 <body>
     <h4>이미지를 클릭해보세요</h4>
     <hr>
-    <img id="rotateImage" src="/1.이벤트 이해하기/static/photo1.jpg" onclick="rotate()">
+    <img id="rotateImage" src="/1.이벤트 이해하기/static/photo1.jpg">
+    <h3 id="degree"></h3>
     <script>
         const i = document.getElementById("rotateImage");
+        i.onclick = rotate; //객체.리스너 = 핸드러; 단, 함수에 괄호 없다 !!
         let d = 0;
         function rotate() {
-            d += 360; /* 회전각도 */
-            i.style.transform = `rotate(${d}deg)`;
+            d += 45; /* 회전각도 */
+            i.style.transform = `rotate(${d}deg)`; 
+            //i.styel.transfrom = "rotate(" + d + "deg)";
+            // 각도 출력
+            document.getElementById('degree').textContent = d + "도 회전.";
+            console.log("현재각도 = " + d);
         }
     </script>
 </body>

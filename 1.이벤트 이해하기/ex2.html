@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제2</title>
+    <style>
+        body { text-align: center; }
+        #rotateImage { transition: transform 1s; }
+    </style>
+</head>
+<body>
+    <h4>마우스 커서를 이미지 위에 올렸다가 치워보세요</h4>
+    <hr>
+    <img id="rotateImage" src="/1.이벤트 이해하기/static/photo2.jpg" onmouseover="small()" onmouseout="back()">
+    <script>
+        const i = document.getElementById("rotateImage");
+        //i.onmouseover = small;
+        //i.onmouseout = back;
+        
+        function small() {
+            i.style.transform = "scale(0.2, 0.2)";
+        }
+        
+        function back() {
+            i.style.transform = "scale(1, 1)";
+        }
+    </script>
+</body>
+</html>
