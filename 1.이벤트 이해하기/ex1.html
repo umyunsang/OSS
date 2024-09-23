@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제1</title>
+    <style>
+        body { text-align: center; }
+        #rotateImage { transition: transform 1s; } /* 회전시간 */
+    </style>
+</head>
+<body>
+    <h4>이미지를 클릭해보세요</h4>
+    <hr>
+    <img id="rotateImage" src="/1.이벤트 이해하기/static/photo1.jpg" onclick="rotate()">
+    <script>
+        const i = document.getElementById("rotateImage");
+        let d = 0;
+        function rotate() {
+            d += 360; /* 회전각도 */
+            i.style.transform = `rotate(${d}deg)`;
+        }
+    </script>
+</body>
+</html>
