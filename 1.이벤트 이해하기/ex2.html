@@ -16,6 +16,12 @@
         const i = document.getElementById("rotateImage");
         //i.onmouseover = small;
         //i.onmouseout = back;
+        i.onmousedown = large;
+        i.onmouseup = back;
+
+        function large() {
+            i.style.transform = "scale(2, 2)";
+        }
         
         function small() {
             i.style.transform = "scale(0.2, 0.2)";

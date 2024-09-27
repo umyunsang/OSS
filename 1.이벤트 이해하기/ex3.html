@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제3</title>
+    <style>
+        #sky {
+            width: 800px;
+            height: 400px;
+            background: cyan;
+            overflow: hidden;
+        }
+        #followMouse {
+            transition: transform 0.5s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="sky" onmousemove = "updateImage(event)">
+        <img id="followMouse" src="/1.이벤트 이해하기/static/photo3.png">
+    </div>
+    <script>
+        const i = document.getElementById("followMouse");
+        const d = document.getElementById("sky");
+        // d.onmousemove = updateImage;
+
+        function updateImage(event) {
+            const X = event.clientX - i.width/2;
+            const Y = event.clientY - i.height/2;
+            i.style.transform = `translate(${X}px, ${Y}px)`;
+            i.style.transform = "translate(" + X + "px, " + Y + "px)";
+        }
+    </script>
+</body>
+</html>

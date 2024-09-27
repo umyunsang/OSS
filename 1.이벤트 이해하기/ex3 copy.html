@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제3변형</title>
+    <style>
+        #sky {
+            width: 800px;
+            height: 400px;
+            background: cyan;
+            overflow: hidden;
+        }
+        #followMouse {
+            transition: transform 0.5s linear; position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="sky" onmousemove = "updateImage(event)">
+        <img id="followMouse" src="/1.이벤트 이해하기/static/photo3.png">
+    </div>
+    <script>
+        const i = document.getElementById("followMouse");
+        const d = document.getElementById("sky");
+        let degree = 0;
+        // d.onmousemove = updateImage;
+        i.ondblclick = changeImage;
+        i.onclick = rotate;
+
+        function updateImage(event) {
+            const X = event.clientX - i.width/2;
+            const Y = event.clientY - i.height/2;
+            // i.style.transform = `translate(${X}px, ${Y}px)`;
+            // i.style.transform = "translate(" + X + "px, " + Y + "px)";
+            i.style.left = X + "px";
+            i.style.top = Y + "px";
+        }
+        function changeImage() {
+            let str = i.src;
+            
+            if (str.includes("photo3")) {
+                i.src = str.replace("photo3", "photo6");
+            } 
+            else if (str.includes("photo6")) {
+                i.src = str.replace("photo6", "photo3");
+            }
+        }
+        function rotate() {
+            degree += 90;
+            i.style.transform = `rotate(${degree}deg)`;
+        }
+
+    </script>
+</body>
+</html>
