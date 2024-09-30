@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제4</title>
+    <style>
+        div { padding: 40px; border: 1px solid #c9a; margin: 20px;}
+    </style>
+</head>
+<body>
+    <div id="parent"> 부모
+        <div id="child"> 자식
+        </div>
+    </div>
+    <script>
+        const p = document.getElementById("parent");
+        const c = document.getElementById("child");
+
+        // 버블링 (기본. 자식부터)
+        // p.addEventListener("click", function() {alert("부모 (버블링)");});
+        // c.addEventListener("click", function() {alert("자식 (버블링)");});
+
+        // 캡쳐링 (부모부터 3번째 인자 true)
+        p.addEventListener("click", function() {alert("부모 (캡쳐링)");}, true);
+        c.addEventListener("click", function() {alert("자식 (캡쳐링)");}, true);
+    </script>
+</body>
+</html>

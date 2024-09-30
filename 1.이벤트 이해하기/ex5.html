@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제5</title>
+    <style>
+        body { text-align: center; overflow: hidden;}
+    </style>
+</head>
+<body>
+    <h4>마우스의 휠을 돌려보세요</h4>
+    <hr>
+    <img id="largerImage" src="/1.이벤트 이해하기/static/photo5.jpg" width="320" height="210">
+    <script>
+        const i = document.getElementById("largerImage");
+        document.addEventListener('wheel', (e) => {
+            if (e.deltaY < 0) {
+                i.width *= 1.1;
+                i.height *= 1.1;
+            } else {
+                i.width /= 1.1;
+                i.height /= 1.1;
+            }
+        });
+    </script>
+</body>
+</html>

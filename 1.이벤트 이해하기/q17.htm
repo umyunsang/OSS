@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8"> 
+    <title>복수 이벤트</title> 
+    <style> 
+        #sky { 
+            width: 800px; 
+            height: 400px; 
+            background: cyan; 
+        } 
+        #aircraft { 
+            transition: transform 1s linear; 
+            position: absolute; 
+        } 
+    </style> 
+</head>
+<body> 
+    <div id="sky"> 
+        <img id="aircraft" src="/1.이벤트 이해하기/static/photo3.png"> 
+    </div> 
+    <script> 
+        const i = document.getElementById("aircraft"); 
+        i.style.left = "300px"; 
+        i.style.top = "150px"; 
+        let kak = 0; 
+
+        // i.onclick = showImagePopup; 
+        // i.onclick = rotateImage; 
+        i.addEventListener("click", showImagePopup); //on 빼고, 함수괄호도 빼고
+        i.addEventListener("click", rotateImage);
+        
+        function showImagePopup() { 
+            alert('비행기를 클릭하셨습니다.'); 
+        } 
+        
+        function rotateImage() { 
+            kak -= 90; 
+            i.style.transform = `rotate(${kak}deg)`; 
+        } 
+    </script> 
+</body>
+</html>
