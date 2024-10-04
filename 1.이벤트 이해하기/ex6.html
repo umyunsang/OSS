@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제6</title>
+    <style>
+        body { 
+            text-align: center; 
+        }
+        #inputField { 
+            margin: 50px; 
+            padding: 10px; 
+            font-size: 16px; 
+            outline: none; 
+            border: 2px solid #3498db; 
+        }
+        #inputField:focus { 
+            border: 2px dotted #e74c3c; 
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inputField" placeholder="-_-">
+    <script>
+        const box = document.getElementById("inputField");
+        // box.addEventListener("focus", () => { 
+        //     box.placeholder = "^~^"; 
+        // });
+        box.onfocus = () => { box.placeholder = "^~^"};
+        box.addEventListener("blur", () => { 
+            box.placeholder = "-_-"; 
+        });
+    </script>
+</body>
+</html>

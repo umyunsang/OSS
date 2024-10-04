@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예제9</title>
+</head>
+<body>
+    <h4>좌우 화살표 키를 눌러 보세요</h4>
+    <hr>
+    <img id="man" src="/.이벤트 이해하기/static/photo7.jpg">
+    <script>
+        const i = document.getElementById("man");
+        let x = 0;
+
+        document.addEventListener("keydown", (e) => {
+            if(e.key == "ArrowLeft") {
+                x -= 10;
+                if (x < 0) x = 0;
+            } else if(e.key == "ArrowRight") {
+                x += 10;
+                if (x > 450) x = 450;
+            }
+            i.style.transform = `translateX(${x}px)`;
+        });
+    </script>
+</body>
+</html>

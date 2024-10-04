@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>q22</title>
+    <style>
+        body { 
+            text-align: center; 
+        }
+        /* 여기 1줄 */
+        #rotateImage { transition: transform 1s; }
+    </style>
+</head>
+<body>
+    <img id="rotateImage" src="/1.이벤트 이해하기/static/photo6.png">
+    <script>
+        /* 여기 코딩 */
+        const i = document.getElementById("rotateImage");
+        let d = 0;
+        i.addEventListener('load', () => { 
+            d += 360;
+            i.style.transform = `rotate(${d}deg)`});
+        i.addEventListener('click', () => { 
+            d += 360;
+            i.style.transform = `rotate(${d}deg)`});  
+    </script>
+</body>
+</html>
