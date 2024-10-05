@@ -31,13 +31,12 @@
         f.addEventListener("submit", (e) => {
             e.preventDefault(); // 객체의 기본 동작을 막음
             if (document.getElementById("messageBox").value == "") {
-                dr.innerTExt = "Your typed: nothing";
+                dr.innerText = "Your typed: nothing";
             }
             else if (document.getElementById("messageBox").value.trim() == "") {
-                dr.innerTExt = "Your typed: spaces only";
+                dr.innerText = "Your typed: spaces only";
             }
             else dr.innerText = "You typed: " + document.getElementById("messageBox").value;
-
         });
 
         f.addEventListener("reset", () => {
