@@ -11,13 +11,16 @@
         #result { 
             color: #933; 
         }
+        img { 
+            max-width: 200px; max-height: 200px;
+        }
     </style>
 </head>
 <body>
     <div>
         <label for="selectBox">좋아하는 과일:</label>
         <select id="selectBox">
-            <option hidden>==선택==
+            <option >==선택==
             <option>사과
             <option>수박
             <option>포도
@@ -25,15 +28,24 @@
     </div>
     <hr>
     <div id="result"></div>
+    <img id="image" src="/1.이벤트 이해하기/static/사과.png" alt="사진 로딩 오류" hidden>
     <script>
         let s = document.getElementById("selectBox");
         let r = document.getElementById("result");
+        const image = document.getElementById('image');
 
         s.addEventListener("change", changeFruits);
 
         function changeFruits() {
             const idx = s.selectedIndex;
             const fruit = s.options[idx].value;
+            image.hidden = false;
+            if (fruit == '수박') {
+                image.src = "/1.이벤트 이해하기/static/수박.png";
+            }
+            else if (fruit == '포도') {
+                image.src = "/1.이벤트 이해하기/static/포도.png";
+            }
             r.innerText = "맛있는 " + fruit + "!!";
         }
     </script>
