@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Array 객체의 메서드 사용하기</title>
+</head>
+<body>
+  <script>
+	let a1 = [0, 1, 2, 3, 4];
+    let a2 = new Array(5, 6, 7, 8, 9);
+    document.write(a1 + '<br>');
+    document.write(a2 + '<hr>');
+  
+    document.write(a1.concat(a2) + '<br>'); //concat 연결 0,1,2,3,4,5,6,7,8,9
+
+    function gt(a) { return (a >= 7);}
+    document.write(a2.filter(gt) + '<br>'); // 7, 8, 9
+
+    document.write(a2.indexOf(6) + '<br>'); // 1
+    document.write(a2.slice(1, 4) + '<br>'); // 6, 7, 8
+    document.write(a2.join("+") + '<hr>'); // 5+6+7+8+9
+
+	// 원본이 바뀜
+    document.write(a2.reverse() + '<br>'); // 9,8,7,6,5
+    a2.push(4); document.write(a2 + '<br>'); // 9,8,7,6,5,4
+	a2.pop(); document.write(a2 + '<br>'); // 9,8,7,6,5
+	a2.shift(); document.write(a2 + '<br>'); // 8,7,6,5
+	a2.unshift(10); document.write(a2 + '<hr>'); // 10,8,7,6,5
+	
+    document.write(a2.sort() + '<br>'); // 10,5,6,7,8
+    document.write(a2.sort((a, b) => a - b) + '<hr>'); // 5,6,7,8,10
+  </script>
+</body>
+</html>

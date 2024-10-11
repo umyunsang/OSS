@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>전역객체 메서드 사용하기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    const jud = confirm("confirm() 앞에 window.이 생략된 것을 이해했나요?");
+    document.write("이렇게 대답하셨습니다: " + (jud == true ? '예' : '아니오') + "<hr>");
+    
+    document.write(isNaN(1) + "<hr>");
+    document.write(isNaN('0.5') + "<hr>"); //'0.5' 안에 내용물이 숫자임
+    document.write(isNaN('str') + "<hr>");
+    document.write(eval(3 ** 4)); // document.write(3 ** 4);
+  </script>
+</body>
+</html>
