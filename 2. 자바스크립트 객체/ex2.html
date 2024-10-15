@@ -6,28 +6,52 @@
 </head>
 <body>
   <script>
-	let a1 = [0, 1, 2, 3, 4];
+    let a1 = [0, 1, 2, 3, 4];
     let a2 = new Array(5, 6, 7, 8, 9);
-    document.write(a1 + '<br>');
-    document.write(a2 + '<hr>');
+
+    // 배열 출력
+    document.write(a1 + '<br>');            // 0,1,2,3,4
+    document.write(a2 + '<hr>');            // 5,6,7,8,9
   
-    document.write(a1.concat(a2) + '<br>'); //concat 연결 0,1,2,3,4,5,6,7,8,9
+    // a1과 a2 배열을 concat으로 연결
+    document.write(a1.concat(a2) + '<br>'); // 0,1,2,3,4,5,6,7,8,9
 
+    // filter 메서드로 a2 배열에서 7 이상인 값 필터링
     function gt(a) { return (a >= 7);}
-    document.write(a2.filter(gt) + '<br>'); // 7, 8, 9
+    document.write(a2.filter(gt) + '<br>'); // 7,8,9
 
+    // a2 배열에서 6의 인덱스 찾기
     document.write(a2.indexOf(6) + '<br>'); // 1
-    document.write(a2.slice(1, 4) + '<br>'); // 6, 7, 8
-    document.write(a2.join("+") + '<hr>'); // 5+6+7+8+9
 
-	// 원본이 바뀜
-    document.write(a2.reverse() + '<br>'); // 9,8,7,6,5
-    a2.push(4); document.write(a2 + '<br>'); // 9,8,7,6,5,4
-	a2.pop(); document.write(a2 + '<br>'); // 9,8,7,6,5
-	a2.shift(); document.write(a2 + '<br>'); // 8,7,6,5
-	a2.unshift(10); document.write(a2 + '<hr>'); // 10,8,7,6,5
+    // a2 배열을 인덱스 1부터 4 전까지 잘라내기
+    document.write(a2.slice(1, 4) + '<br>'); // 6,7,8
+
+    // 배열을 '+'로 연결하여 출력
+    document.write(a2.join("+") + '<hr>');   // 5+6+7+8+9
+
+    // reverse: 배열의 순서를 반대로
+    document.write(a2.reverse() + '<br>');   // 9,8,7,6,5
+
+    // push: 배열 끝에 4 추가
+    a2.push(4); 
+    document.write(a2 + '<br>');             // 9,8,7,6,5,4
+
+    // pop: 배열 마지막 요소 제거
+    a2.pop(); 
+    document.write(a2 + '<br>');             // 9,8,7,6,5
+
+    // shift: 배열 첫 번째 요소 제거
+    a2.shift(); 
+    document.write(a2 + '<br>');             // 8,7,6,5
+
+    // unshift: 배열 앞에 10 추가
+    a2.unshift(10); 
+    document.write(a2 + '<hr>');             // 10,8,7,6,5
 	
-    document.write(a2.sort() + '<br>'); // 10,5,6,7,8
+    // sort: 배열을 문자열 기준으로 정렬
+    document.write(a2.sort() + '<br>');      // 10,5,6,7,8
+
+    // 숫자 기준으로 정렬
     document.write(a2.sort((a, b) => a - b) + '<hr>'); // 5,6,7,8,10
   </script>
 </body>
