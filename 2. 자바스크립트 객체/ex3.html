@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>String 객체의 메서드 사용하기</title> 
+</head> 
+<body> 
+    <script> 
+        const s1 = new String("OSS기반 "); 
+        const s2 = "AI Programming"; 
+        document.write(`s1 = "${s1}"<br>`);
+        document.write(`s2 = "${s2}"<hr>`); 
+        
+        document.write(`${s1.charAt(0)}<br>`);          //O
+        document.write(`${s1.concat(s2)}<br>`);         //OSS기반 AI Programming
+        document.write(`${s2.indexOf("i")}<hr>`);       //11
+        
+        document.write(`${s2.replace("m", "M")}<br>`);  //AI PrograMming 첫번재 M만 바뀜
+        document.write(`${s2.search("i")}<br>`);        //11
+        document.write(`${s2.split("a")}<hr>`);         //AI Progr, mming
+        
+        document.write(`${s2.substr(3, 5)}<br>`);       //Progr
+        document.write(`${s2.substring(3, 5)}<br>`);    //Pr
+        document.write(`${s2.substr(3)}<br>`);          //Programming
+        document.write(`${s2.substring(3)}<br>`);       //Programming
+        document.write(`${s2.slice(3, -2)}<hr>`);       //Programmi
+        
+        document.write(`${s2.toLowerCase()}<br>`);      //ai programming
+        document.write(`${s2.toUpperCase()}<br>`);      //AI PROGRAMMING
+        document.write(`"${s1.trim()}"`);               //"OSS기반"
+    </script> 
+</body> 
+</html>
