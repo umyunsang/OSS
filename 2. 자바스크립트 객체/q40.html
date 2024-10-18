@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"><title>현재 시간</title>
+    <style>
+      body { padding: 20px; }
+      h3 { color: blue; }
+      button { padding: 10px; }
+    </style></head>
+  <body>
+    <button onclick="getTime()">현재 시간</button>
+    <h3 id="a1"></h3>    
+    <script>
+      function getTime() {
+        let d = new Date(); 
+        // 여기 1문장
+        document.getElementById("a1").textContent =
+            d.getHours() + '시' + d.getMinutes() + '분' + d.getSeconds() + '시';
+      }
+    </script>
+  </body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>수학계산기</title>
+    <style>
+      body { padding: 20px; }
+      h3 { color: blue; }
+      button { padding: 10px; }
+      input { margin: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>수학 계산기</h1>
+    1. 각도 x를 입력하세요. 
+    <input type="text" id="x">
+    <button onclick="getSin()">sin(x) 알아보기</button>
+    <h3 id="a1"></h3>
+    
+    2. a와 b를 입력하세요. (공백으로 구분) 
+    <input type="text" id="ab" placeholder="a b">
+    <button onclick="getPow()">a<sup>b</sup> 알아보기</button>
+    <h3 id="a2"></h3>
+    
+    <script>
+      function getSin() {
+        let x = parseInt(document.getElementById('x').value.trim());
+        x = Math.PI / 180 * x;
+        const y = Math.sin(x).tofixed(2);
+        document.getElementById('a1').textContent = y;
+      }
+      
+      function getPow() {
+        const ab = document.getElementById('ab').value.trim();      // '3 4'
+        // 여기 2라인
+        const arr = ab.split(" ")   // '3', '4'
+        const a = parseInt(arr[0], b = parseInt(arr[1]))
+        document.getElementById('a2').textContent = Math.pow(a, b);
+      }
+    </script>
+  </body>
+</html>

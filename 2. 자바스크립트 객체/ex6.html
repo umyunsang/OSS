@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>시스템 날짜 출력하기</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script>
+      let d = new Date();
+      document.write(d + '<hr>');
+      document.write(d.toLocaleString() + '<hr>');
+      document.write(d.getFullYear() + '년<hr>');
+      document.write(d.getMonth() + 1 + '월<hr>');
+      document.write(d.getDate() + '일<hr>');
+      const yoil = "일월화수목금토";
+      document.write(yoil[d.getDay()] + '요일<hr>');
+      document.write(d.getHours() + '시<hr>');
+      document.write(d.getMinutes() + '분<hr>');
+      document.write(d.getSeconds() + '초');
+    </script>
+  </body>
+</html>

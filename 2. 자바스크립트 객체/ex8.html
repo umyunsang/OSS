@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>무작위로 색 표현</title>
+    <style>
+      div {
+        width: 200px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      let count = 1;
+
+      for (let i = 0; i < 10; i++) {
+        changeColor();
+      }
+
+      function changeColor() {
+        for (let k = 0; k < 6; k++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        document.write("<div style='background:" + color + "'>" + color + "</div>");
+        color = "#";
+      }
+    </script>
+  </body>
+</html>
