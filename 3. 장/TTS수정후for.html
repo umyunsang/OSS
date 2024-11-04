@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TTS 수정 후 for</title>
+</head>
+<style>
+    body {text-align: center;}
+    h2 {color: blue;}
+    button {background-color: lime; 
+            font-size: 1em; 
+            padding: 0px 20px;}
+</style>
+<body>
+    <h2>여러 텍스트를 이어서 읽어드립니다</h2>
+    <textarea class="box" rows="5" cols="50" placeholder="여기에 입력하세요"></textarea><br>
+    <textarea class="box" rows="5" cols="50" placeholder="여기에 입력하세요"></textarea><br>
+    <button onclick="readText()">읽기</button>
+    
+    <script>
+        function readText() {
+            const arr = document.getElementsByClassName("box");
+            let main_text = "";
+
+            for (let i = 0; i < arr.length; i++) {
+                let text = arr[i].value.trim();
+                main_text += text;
+            }
+            if (main_text !== "") {
+                const utterance = new SpeechSynthesisUtterance(main_text);
+                window.speechSynthesis.speak(utterance);
+            }
+            else {
+                alert("읽을 텍스트를 입력하세요.");
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
