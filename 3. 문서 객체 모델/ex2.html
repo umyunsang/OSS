@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>carrot 아니다</p>
+    <p class="carrot">carrot 1</p>
+    <p class="carrot">carrot 2</p>
+    <hr>
+    
+    <script>
+        const carrotarr = document.getElementsByClassName("carrot");
+        const tagarr = document.getElementsByTagName("p");
+        
+        for (let i = 0; i < carrotarr.length; i++) {
+            document.write(`carrotarr[${i}] = ${carrotarr[i].innerHTML}<br>`);
+        }
+        
+        document.write("<hr>");
+        
+        for (let i = 0; i < tagarr.length; i++) {
+            document.write(`tagarr[${i}] = ${tagarr[i].innerHTML}<br>`);
+        }
+    </script>
+</body>
+</html>

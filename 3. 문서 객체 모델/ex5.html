@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <textarea id="text" rows="5" cols="20"></textarea><br>
+    <input type="button" value="Get Text" onClick="getTextarea()">
+    <hr>
+    <p id="result"></p>
+    
+    <script>
+        function getTextarea() {
+            const st = document.getElementById("text").value;
+            document.getElementById("result").innerHTML = st;
+        }
+    </script>
+</body>
+</html>

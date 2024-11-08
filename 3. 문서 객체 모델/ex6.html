@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="myCheckbox">본인 맞습니다.<br>
+    <input type="button" value="다음" onClick="getCheckbox()">
+    <hr>
+    <p id="result"></p>
+    
+    <script>
+        function getCheckbox() {
+            if (document.getElementById("myCheckbox").checked == true) {
+                document.getElementById("result").innerHTML = "작업을 진행하겠습니다.";
+            } else {
+                document.getElementById("result").innerHTML = "본인 인증 해주세요.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="radio" name="color" value="red" checked>RED<br>
+    <input type="radio" name="color" value="green">GREEN<br>
+    <input type="radio" name="color" value="blue">BLUE<br>
+    <input type="button" value="choice" onClick="getRadio()">
+    <hr>
+    <h2 id="result"></h2>
+    
+    <script>
+        function getRadio() {
+            const colorarr = document.querySelectorAll("[type='radio']");
+            for (let c of colorarr) {
+                if (c.checked) {
+                    document.getElementById("result").innerHTML = `${c.value}`;
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

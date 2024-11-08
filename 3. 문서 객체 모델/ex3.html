@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p class="carrot">carrot 1</p>
+    <p class="carrot">carrot 2</p>
+    <p>carrot도 ice도 아니다</p>
+    <p id="ice">ice</p>
+    <hr>
+    
+    <script>
+        const carrotarr = document.querySelectorAll(".carrot");
+        for (let i = 0; i < carrotarr.length; i++) {
+            document.write(`carrotarr[${i}] = ${carrotarr[i].innerHTML}<br>`);
+        }
+        
+        document.write("<hr>");
+        
+        const icearr = document.querySelectorAll("#ice");
+        for (let i = 0; i < icearr.length; i++) {
+            document.write(`icearr[${i}] = ${icearr[i].innerHTML}<br>`);
+        }
+    </script>
+</body>
+</html>

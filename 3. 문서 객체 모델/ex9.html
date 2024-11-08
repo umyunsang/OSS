@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>키우고 싶은 동물은</p>
+    <select id="selectBox">
+        <option>==선택==</option>
+        <option>dog</option>
+        <option>cat</option>
+        <option>duck</option>
+        <option>koala</option>
+    </select>
+    <h2 id="result"></h2>
+    
+    <script>
+        const s = document.getElementById("selectBox");
+        s.addEventListener("change", getSelect);
+        s.options[0].hidden = true;
+        
+        function getSelect() {
+            const i = s.selectedIndex;
+            document.getElementById("result").innerHTML = s.options[i].value;
+        }
+    </script>
+</body>
+</html>
