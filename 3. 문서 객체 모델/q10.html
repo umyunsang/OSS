@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    img { max-width: 200px; max-height: 200px;}
+</style>
+<body>
+    <p>키우고 싶은 동물은</p>
+    <select id="selectBox">
+        <option>==선택==</option>
+        <option value="dog">dog</option>
+        <option value="cat">cat</option>
+        <option value="duck">duck</option>
+        <option value="koala">koala</option>
+    </select>
+    <img id="image" src="" alt="사진 로딩 오류" hidden>
+
+    <script>
+        const animal = document.getElementById("selectBox");
+        const img = document.getElementById("image");
+        animal.options[0].hidden = true;
+
+        animal.addEventListener("change", () => {
+            if (animal.value !== "==선택==") {
+                img.src = `./static/${animal.value}.jpg`;
+                img.hidden = false;
+            } else {
+                img.hidden = true;
+            }
+        });
+    </script>
+</body>
+</html>
