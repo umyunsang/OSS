@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예13</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3 id="h">사이트 추가하기</h3>
+    <input type="button" value="add" onClick="addNode()">
+    <script>
+        const urlarr = ['https://www.daum.net', 'https://www.naver.com', 'https://www.donga.ac.kr'];
+        const namearr = ['다음', '네이버', '동아대학교'];
+        let i = 0;
+
+        function addNode() {
+            const node = document.createElement("a");
+            node.href = urlarr[i];
+            node.innerHTML = `<hr>${namearr[i]}`;
+            document.getElementById("h").appendChild(node);
+            if (++i >= urlarr.length) i = 0;
+        }
+    </script>
+</body>
+</html>

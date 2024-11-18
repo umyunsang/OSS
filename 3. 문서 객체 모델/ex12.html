@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예12</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="box" style="width:200px; height:200px; margin:auto;"></div>
+    <script>
+        const box = document.getElementById("box");
+        const letters = "0123456789ABCDEF";
+        let count = 0;
+        const intervalID = setInterval(changeFigure, 300);
+
+        function changeFigure() {
+            if (count > 10) clearInterval(intervalID);
+            const a = letters[Math.floor(Math.random() * 16)];
+            const b = letters[Math.floor(Math.random() * 16)];
+            box.style.background = '#00' + a + b + '00';
+            box.style.borderRadius = `${count * 5}%`;
+            count++;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예11</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    img { max-width: 200px; max-height: 200px;}
+</style>
+<body style="text-align: center">
+    <img id="image" src="./static/photo1.jpg">
+    <br>
+    <button onclick="changeImage()">사진 변경</button>
+    <script>
+        let toggle = 1;
+        const i = document.getElementById("image");
+
+        function changeImage() {
+            toggle++;
+            if (toggle % 3 == 2)
+                i.src = "./static/photo2.jpg";
+            else if (toggle % 3 == 1)
+                i.src = "./static/photo1.jpg";
+            else
+                i.src = "./static/dog.jpg";
+        }
+    </script>
+</body>
+</html>

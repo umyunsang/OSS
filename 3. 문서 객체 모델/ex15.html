@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예15</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table, td {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <tr>
+            <td>원래 셀</td>
+            <td>원래 셀</td>
+        </tr>
+    </table>
+    <br>
+    <button onClick="changeTable(1)">행 추가</button>
+    <button onClick="changeTable(-1)">행 삭제</button>
+    <script>
+        const t = document.getElementById("tbl");
+
+        function changeTable(gubun) {
+            const num = t.rows.length;
+            if (gubun == 1) {
+                const newRow = t.insertRow(num);
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                cell1.innerHTML = `추가 셀 ${num}`;
+                cell2.innerHTML = `추가 셀 ${num}`;
+            } else {
+                if (num > 1) {
+                    t.deleteRow(num - 1);
+                } else {
+                    alert("맨 위 행은 삭제 안 해 드림!!");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예14</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #b4 {
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="d">
+        <button id="b1">첫 번째</button>
+        <button id="b2">두 번째</button>
+        <button id="b3">세 번째</button>
+    </div>
+    <button id="b4" onClick="removeNode()">노드 지우기</button>
+    <script>
+        let num = 1;
+
+        function removeNode() {
+            const parent = document.getElementById("d");
+            const child = document.getElementById(`b${num}`);
+            if (child) {
+                parent.removeChild(child);
+                num++;
+            }
+        }
+    </script>
+</body>
+</html>
