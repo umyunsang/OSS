@@ -12,7 +12,6 @@
         input {
             padding: 10px;
             font-size: 16px;
-            color: blue;
         }
         button {
             padding: 5px 20px;
@@ -22,52 +21,24 @@
     </style>
 </head>
 <body>
-    <input type="text" id="inputWord" disabled>
-    <button id="startButton">음성인식 시작</button>
+    <input type="text" id="inputWord" placeholder="단어를 입력하세요">
+    <button id="changeButton">배경 변경</button>
     <script>
-        const output = document.getElementById("inputWord");
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
         const jsarr = {
-            고양이: "https://i.namu.wiki/i/AsljZkOSzoTRwvWAOMlAcd_mIQFQxr8kLMvH2J1Tlb-fgtUgYet_9UTmOffCaZtefJ0Rwn8PYk64_wx5gtDDiKl_mEteOWsTrx2ArXcbl_zmpMJf-WO9R32fmQ573K2blSuABxavsU0ZIlBPyq_VBA.webp",
-            강아지: "https://i.namu.wiki/i/dlmFj2hnDB0zbQawpK771DLjYxJNopqm94hjd7dMrWm4n_A6TVIxKgqGd7MnZbVs4ByUIosERgSZkSeNRrerLZcrR1JbVvYDKZK8MZPMBBoRT6lVr7kyl5J_dNz6IhmqeG1HcXeJhTHUrETyWvM21Q.webp",
-            토끼: "https://i.namu.wiki/i/VhCHM8DspFjd7MeekJpaCGxst0NJ9y7QD3kjtBIeJ2LdlTMSwiIo4-6amekUeEL6VRE5CXHQl5aAOM3RBWwyk6rgF96tV2RQoH0ngrWspCHQ5YqwjTYL6DXJSA1Q_kOjrk6vmNRoqbdbf3lWS_frvA.webp"
+            고양이: "이미지주소",
+            강아지: "이미지주소",
+            토끼: "이미지주소"
         }; // JSON 객체
 
-        if (!SpeechRecognition) {
-            alert("이 브라우저는 음성 인식을 지원하지 않습니다.");
-        } else {
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'ko-KR';
-
-            document.getElementById("startButton").addEventListener("click", () => {
-                recognition.start(); // 음성 인식 시작
-                output.value = '(음성 인식 중)';
-            });
-
-            recognition.onresult = (event) => {
-                // 음성 인식 결과 처리
-                const word = event.results[0][0].transcript.trim();
-                output.value = word;
-
-                const imageUrl = jsarr[word];
-                if (imageUrl) {
-                    document.body.style.backgroundImage = `url('${imageUrl}')`;
-                } else {
-                    alert("해당 이미지를 찾을 수 없습니다. 다른 단어를 입력하세요!");
-                }
-            };
-
-            recognition.onerror = (event) => {
-                // 오류 처리
-                alert("오류가 발생했습니다: " + event.error);
-            };
-
-            recognition.onend = () => {
-                // 음성 인식 종료 시 처리
-                console.log("음성 인식이 종료되었습니다.");
-            }; 
-        }
+        document.getElementById("changeButton").addEventListener("click", () => {
+            const word = document.getElementById("inputWord").value.trim();
+            const imageUrl = jsarr[word];
+            if (imageUrl) {
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+            } else {
+                alert("해당 이미지를 찾을 수 없습니다. 다른 단어를 입력하세요!");
+            }
+        });
     </script>
 </body>
 </html>
