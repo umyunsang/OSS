@@ -5,28 +5,19 @@
     <title>예10</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .hone {
+        #hone {
             color: blue;
         }
     </style>
 </head>
 <body style="text-align: center">
-    <h1 class="hone">Hello!</h1>
-    <h1 class="hone">Hello!</h1>
-    <h1 class="hone">Hello!</h1>
-    <h1 class="hone">Hello!</h1>
-    <h1 class="hone">Hello!</h1>
-    <h1 class="hone">Hello!</h1>
+    <h1 id="hone">Hello,Bye!</h1>
     <script>
-        const harr = document.getElementsByClassName("hone");
-        let str='hello!';
+        const h = document.getElementById("hone");
         setInterval(rotateString, 500);
-    
+
         function rotateString() {
-            str = str.slice(1) + str[0]
-            for(let i=0; i< harr.length; i++){
-                harr[i].textContent = str[i];
-            }
+            h.textContent = h.textContent.slice(1) + h.textContent[0];
         }
     </script>
 </body>
