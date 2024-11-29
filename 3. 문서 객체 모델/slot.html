@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>슬롯머신</title>
+  <link rel="stylesheet" href="slot.css">
+</head>
+<body>
+  <div class="slot-machine">
+    <img class="slot" id="slot1" src="/3. 문서 객체 모델/static/cat.jpg">
+    <img class="slot" id="slot2" src="/3. 문서 객체 모델/static/dog.jpg">
+    <img class="slot" id="slot3" src="/3. 문서 객체 모델/static/duck.jpg">
+  </div>
+  <button onclick="startSlotMachine()">슬롯머신 돌리기</button>
+  <h3 id="result">ready</h3>
+  <h4 id="icount">&nbsp;</h4>
+  <script>
+    const symbols = ["cat", "dog", "duck", "koala", "사과"];
+    const slotarr = document.querySelectorAll(".slot");
+    const r = document.getElementById("result");
+
+    function getRandomSymbol() {
+      return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    function startSlotMachine() {
+      const finalSymbols = [];
+      for (let i = 0; i < slotarr.length; i++) 
+        finalSymbols.push(getRandomSymbol());
+      
+      let iterationCount = 0;
+
+      const spinSlots = () => {
+        iterationCount++;
+        document.getElementById("icount").textContent = iterationCount;
+        slotarr.forEach((s) => {
+           s.src = `/3. 문서 객체 모델/static/${getRandomSymbol()}.jpg`;
+        });
+
+        if (iterationCount >= 10) {
+          clearInterval(intervalId);
+          slotarr.forEach((s, i) => {
+            s.src = `/3. 문서 객체 모델/static/${finalSymbols[i]}.jpg`;
+          });
+
+          /* 결과 출력 */
+          if (finalSymbols[0] == finalSymbols[1] && finalSymbols[1] == finalSymbols[2]) 
+            r.textContent = "Congratulation!!";
+          else if (finalSymbols[0] == finalSymbols[1] || finalSymbols[1] == finalSymbols[2] || finalSymbols[0] == finalSymbols[2]) 
+            r.textContent = "2개 맞았음";
+          else 
+            r.textContent = "꽝!";
+        }
+      }
+
+      const intervalId = setInterval(spinSlots, 100); // 0.1초
+    }
+  </script>
+</body>
+</html>

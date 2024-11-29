@@ -1,0 +1,35 @@
+body {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .slot-machine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 3px 10px;
+    font-size: 16px;
+    background: #99aed5;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .slot {
+    padding: 0 40px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* 이미지를 프레임에 맞게 조정 */
+    margin: 0 10px; /* 이미지 간 간격 */
+  }
+  

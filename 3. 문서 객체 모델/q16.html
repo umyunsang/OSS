@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>동영상 추가삭제</title>
+    <style>
+        video {
+            max-width: 300px;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="h">버튼을 클릭해 보세요</h3>
+    <input type="button" id="b" value="추가">
+    <p>
+    <script>
+        const urlarr = [
+            'https://cdn.pixabay.com/video/2024/03/13/204006-923133925_tiny.mp4',
+            'https://cdn.pixabay.com/video/2024/11/07/240320_tiny.mp4',
+            'https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4'
+        ];
+        const b = document.getElementById("b");
+        b.onclick = addNode;
+
+        let i = 0;
+        let direction = 'right';
+
+        function addNode() {
+            if (i == 3 && direction == 'right') {
+                direction = 'left';
+                b.value = "삭제";
+            }
+            if (i == 0 && direction == 'left') {
+                direction = 'right';
+                b.value = "추가";
+            }
+
+            if (direction == 'right') {
+                const node = document.createElement("video");
+                node.src = urlarr[i];
+                node.id = `v${i}`;
+                node.muted = true;
+                node.autoplay = true;
+                node.controls = true;
+                node.loop = true;
+                /* 여기 노드 추가 1라인 */
+                document.body.appendChild(node); // 노드 추가
+                i++;
+                if (i == urlarr.length) {
+                    b.value = "삭제";
+                }
+            } else {
+                i--;
+                /* 여기 노드 삭제 1라인 */
+                document.body.removeChild(document.getElementById(`v${i}`)); // 노드 삭제
+                if (i == 0) {
+                    b.value = "추가";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

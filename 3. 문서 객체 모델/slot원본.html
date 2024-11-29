@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>슬롯머신</title>
+  <link rel="stylesheet" href="slot.css">
+</head>
+<body>
+  <div class="slot-machine">
+    <span class="slot" id="slot1">🍒</span>
+    <span class="slot" id="slot2">🍋</span>
+    <span class="slot" id="slot3">🍊</span>
+  </div>
+  <button onclick="startSlotMachine()">슬롯머신 돌리기</button>
+  <h3 id="result">ready</h3>
+  <script>
+    const symbols = ["🍒", "🍋", "🍊", "⭐", "🔔"];
+    const slotarr = document.querySelectorAll(".slot");
+    const r = document.getElementById("result");
+
+    function getRandomSymbol() {
+      return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    function startSlotMachine() {
+      const finalSymbols = [];
+      for (let i = 0; i < slotarr.length; i++) 
+        finalSymbols.push(getRandomSymbol());
+      
+      let iterationCount = 0;
+
+      function spinSlots() {
+        iterationCount++;
+        
+        slotarr.forEach((s) => {
+          s.innerHTML = getRandomSymbol();
+        });
+
+        if (iterationCount >= 10) {
+          clearInterval(intervalId);
+          slotarr.forEach((s, i) => {
+            s.innerHTML = finalSymbols[i];
+          });
+
+          /* 결과 출력 */
+          if (finalSymbols[0] == finalSymbols[1] && finalSymbols[1] == finalSymbols[2]) 
+            r.textContent = "Congratulation!!";
+          else if (finalSymbols[0] == finalSymbols[1] || finalSymbols[1] == finalSymbols[2] || finalSymbols[0] == finalSymbols[2]) 
+            r.textContent = "2개 맞았음";
+          else 
+            r.textContent = "꽝!";
+        }
+      }
+
+      const intervalId = setInterval(spinSlots, 100); // 0.1초
+    }
+  </script>
+</body>
+</html>
