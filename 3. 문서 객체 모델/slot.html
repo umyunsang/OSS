@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <title>슬롯머신</title>
   <link rel="stylesheet" href="slot.css">
+  <style>
+    #money {border: dashed; font-size: small; padding: 10px 20px; color:gray;}
+  </style>
 </head>
 <body>
+  <span id="money"></span>
   <div class="slot-machine">
     <img class="slot" id="slot1" src="/3. 문서 객체 모델/static/cat.jpg">
     <img class="slot" id="slot2" src="/3. 문서 객체 모델/static/dog.jpg">
@@ -15,15 +19,39 @@
   <h3 id="result">ready</h3>
   <h4 id="icount">&nbsp;</h4>
   <script>
+    const cost = 1000;
+    let money = 0;
     const symbols = ["cat", "dog", "duck", "koala", "사과"];
     const slotarr = document.querySelectorAll(".slot");
     const r = document.getElementById("result");
+
+    while (1){
+      money = parseInt(prompt("배팅 금액을 입력하세요 (버튼 1회에 비용 1000원)"));
+      if (isNaN(money)) alert("숫자를 입력하세요.");
+      else if (money < 1000) alert("1000원 이상을 입력해주세요.");
+      else break;
+    }
+    document.getElementById("money").textContent = `잔액 : ${money.toLocaleString()} 원`;
 
     function getRandomSymbol() {
       return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
     function startSlotMachine() {
+      if (money == 0){
+        alert("잔액이 부족합니다. 처음부터 다시 시작하세요.");
+        location.reload();
+        return;  
+      }
+      else if (money < cost){
+        alert("잔액이 부족합니다. 처음부터 다시 시작하세요 (잔액 500원은 카운터에서 환불받으실 수 있습니다.)");
+        location.reload();
+        return;
+      }
+
+      money -= cost;
+      document.getElementById("money").textContent = `잔액 : ${money.toLocaleString()} 원`;
+
       const finalSymbols = [];
       for (let i = 0; i < slotarr.length; i++) 
         finalSymbols.push(getRandomSymbol());
@@ -44,13 +72,18 @@
           });
 
           /* 결과 출력 */
-          if (finalSymbols[0] == finalSymbols[1] && finalSymbols[1] == finalSymbols[2]) 
+          if (finalSymbols[0] == finalSymbols[1] && finalSymbols[1] == finalSymbols[2]){
             r.textContent = "Congratulation!!";
-          else if (finalSymbols[0] == finalSymbols[1] || finalSymbols[1] == finalSymbols[2] || finalSymbols[0] == finalSymbols[2]) 
+            money += cost * 10;
+          }
+          else if (finalSymbols[0] == finalSymbols[1] || finalSymbols[1] == finalSymbols[2] || finalSymbols[0] == finalSymbols[2]) {
             r.textContent = "2개 맞았음";
+            money += cost;
+          }  
           else 
             r.textContent = "꽝!";
         }
+        document.getElementById("money").textContent = `잔액 : ${money.toLocaleString()} 원`;
       }
 
       const intervalId = setInterval(spinSlots, 100); // 0.1초
