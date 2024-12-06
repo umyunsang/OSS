@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>올림픽</title>
+    <link rel="stylesheet" href="올림픽.css">
+</head>
+<body>
+    <!-- 
+    원본 소스 body에 있는 트랙 div 5개를 삭제하고 
+    자바스크립트에서 create, append 할 것!
+    
+    <div class="track" id="track1"></div>
+    <div class="track" id="track2"></div>
+    <div class="track" id="track3"></div>
+    <div class="track" id="track4"></div>
+    <div class="track" id="track5"></div> 
+    -->
+
+    <script>
+        const NUM = 5;
+        let finishedCount = 0;
+        let winner = null;
+        // const tracks = document.querySelectorAll(".track");
+        // body에 div없으니 애도 필요 없음, tracks라는 배열도 athlete배열처럼 빈 배열로 시작해서 push
+        const tracks = [];
+        const athletes = [];
+
+        for (let i = 0; i < NUM; i++) {
+
+            // create하고, 속성 2개 채워주고, append하면 끝
+            // 트랙만들기
+            const t = document.createElement("div");
+            t.className = "track";
+            t.id = "track" + (i+1);
+
+            //선수 만들기
+            const a = document.createElement("div");
+            a.className = "athlete";
+            a.style.left = "0";
+
+            // 등번호 만들기
+            const n = document.createElement("div");
+            n.className = "number";
+            n.textContent = i + 1;
+            
+            // append
+            a.appendChild(n);
+            t.appendChild(a);
+            document.body.appendChild(t);
+            
+            //push
+            athletes.push(a);
+            tracks.push(t);
+        }
+
+        const gameInterval = setInterval(() => {
+            for (let i = 0; i < NUM; i++) moveAthlete(athletes[i], i);
+        }, 100);
+
+        function moveAthlete(a, i) {
+            const distance = Math.random() * 10;
+            const currentLeft = parseFloat(a.style.left);
+            const newLeft = currentLeft + distance;
+            a.style.left = newLeft + "px";
+
+            if (newLeft >= (tracks[i].clientWidth - 28) && !winner) {
+                winner = a;
+                a.style.backgroundColor = "blue";
+                finishedCount++;
+                if (finishedCount === 1) {
+                    clearInterval(gameInterval);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

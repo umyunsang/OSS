@@ -1,0 +1,26 @@
+.track { 
+    width: 96%; 
+    height: 30px; 
+    background: #ded; 
+    position: relative; 
+    margin: 20px 0; 
+    border-left: solid 5px #bbb; 
+    border-right: solid 5px red; 
+} 
+
+.athlete { 
+    width: 30px; 
+    height: 30px; 
+    background: #ec9c55; 
+    position: absolute; 
+    top: 0; 
+    border-radius: 0 10px 10px 0; 
+} 
+
+.number { 
+    position: absolute; 
+    color: white; 
+    font-size: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}

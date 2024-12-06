@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>올림픽</title>
+    <link rel="stylesheet" href="올림픽.css">
+</head>
+<body>
+    <!-- 
+    이번에는 반대로, 
+    현재 원본 자바스크립트에서 선수 div (넘버 div 포함)를
+    create, append 하고 있는데 이를 삭제하고, body쪽에 직접 코딩하세요. 
+    -->
+    <div class="track" id="track1">
+        <div class="athlete" style="left:0px">
+            <div class="number">1</div>
+        </div>
+    </div>
+    <div class="track" id="track2">
+        <div class="athlete" style="left:0px">
+            <div class="number">2</div>
+        </div>
+    </div>
+    <div class="track" id="track3">
+        <div class="athlete" style="left:0px">
+            <div class="number">3</div>
+        </div>
+    </div>
+    <div class="track" id="track4">
+        <div class="athlete" style="left:0px">
+            <div class="number">4</div>
+        </div>
+    </div>
+    <div class="track" id="track5">
+        <div class="athlete" style="left:0px">
+            <div class="number">5</div>
+        </div>
+    </div>
+
+    <script>
+        const NUM = 5;
+        let finishedCount = 0;
+        let winner = null;
+        const tracks = document.querySelectorAll(".track");
+        const athletes = document.querySelectorAll(".athlete");
+
+        // for (let i = 0; i < NUM; i++) {
+        //     const a = document.createElement("div");
+        //     a.className = "athlete";
+        //     a.style.left = "0";
+        //     const n = document.createElement("div");
+        //     n.className = "number";
+        //     n.textContent = i + 1;
+        //     a.appendChild(n);
+        //     tracks[i].appendChild(a);
+        //     athletes.push(a);
+        // }
+
+        const gameInterval = setInterval(() => {
+            for (let i = 0; i < NUM; i++) moveAthlete(athletes[i], i);
+        }, 100);
+
+        function moveAthlete(a, i) {
+            const distance = Math.random() * 10;
+            const currentLeft = parseFloat(a.style.left);
+            const newLeft = currentLeft + distance;
+            a.style.left = newLeft + "px";
+
+            if (newLeft >= (tracks[i].clientWidth - 28) && !winner) {
+                winner = a;
+                a.style.backgroundColor = "blue";
+                finishedCount++;
+                if (finishedCount === 1) {
+                    clearInterval(gameInterval);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
