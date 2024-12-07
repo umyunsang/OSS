@@ -12,12 +12,15 @@
     <div class="track" id="track4"></div>
     <div class="track" id="track5"></div>
 
+    <div id="results"></div> <!-- 결과 표시 영역 -->
+
     <script>
         const NUM = 5;
         let finishedCount = 0;
         let winner = null;
         const tracks = document.querySelectorAll(".track");
         const athletes = [];
+        const positions = []; // 선수 위치를 저장할 배열
 
         for (let i = 0; i < NUM; i++) {
             const a = document.createElement("div");
@@ -41,14 +44,28 @@
             const newLeft = currentLeft + distance;
             a.style.left = newLeft + "px";
 
+            // 현재 위치 저장
+            positions[i] = newLeft;
+
             if (newLeft >= (tracks[i].clientWidth - 28) && !winner) {
                 winner = a;
                 a.style.backgroundColor = "blue";
                 finishedCount++;
                 if (finishedCount === 1) {
                     clearInterval(gameInterval);
+                    displayPositions(); // 경기가 끝난 후 위치 출력
                 }
             }
+        }
+
+        function displayPositions() {
+            document.getElementById("results").innerHTML = "<h3>최종 위치</h3>";
+
+            positions.forEach((pos, index) => {
+                const result = document.createElement("h4");
+                result.textContent = `선수 ${index + 1}: ${pos.toFixed()}px`;
+                document.getElementById("results").appendChild(result);
+            });
         }
     </script>
 </body>
