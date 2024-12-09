@@ -12,7 +12,7 @@
     <div class="track" id="track4"></div>
     <div class="track" id="track5"></div>
 
-    <div id="results"></div> <!-- 결과 표시 영역 -->
+    <div id="results"></div>
 
     <script>
         const NUM = 5;
@@ -53,12 +53,12 @@
                 finishedCount++;
                 if (finishedCount === 1) {
                     clearInterval(gameInterval);
-                    displayPositions(); // 경기가 끝난 후 위치 출력
+                    Positions();
                 }
             }
         }
 
-        function displayPositions() {
+        function Positions() {
             document.getElementById("results").innerHTML = "<h3>최종 위치</h3>";
 
             positions.forEach((pos, index) => {

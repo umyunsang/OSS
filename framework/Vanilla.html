@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vanilla JS Dictionary</title>
+</head>
+<body>
+  <input type="text" id="input-word" placeholder="한국어 단어 입력">
+  <button id="translate-button">번역</button>
+  <!-- <button id="translate-button"onclick="abc()">번역</button> -->
+  <p id="result"></p>
+
+  <script type="module">
+    import dictionary from './words.js';
+
+    /* 문제 : addEventLister 사용하지 말 것
+        function abc(){
+        const inputWord = document.getElementById('input-word').value;
+        const result = dictionary[inputWord] || '단어를 찾을 수 없습니다.';
+        document.getElementById('result').textContent = result;
+    }
+    */
+    document.getElementById('translate-button').addEventListener('click', () => {
+      const inputWord = document.getElementById('input-word').value;
+      const result = dictionary[inputWord] || '단어를 찾을 수 없습니다.';
+      document.getElementById('result').textContent = result;
+    });
+  </script>
+</body>
+</html>
